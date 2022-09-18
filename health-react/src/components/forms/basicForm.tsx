@@ -1,18 +1,16 @@
 import { FormEvent } from "react";
-import { BasicFormMock } from "../../Mocks/BasicFormMocks";
 import { IFormInput } from "../../utils/types/IFormInput";
 import FormInput from "./elements/formInput";
 
-const BasicForm: React.FC = () => {
+const BasicForm: React.FC<{ inputs: IFormInput[] }> = ({ inputs }) => {
   function submitForm(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
   }
-  const inputs = BasicFormMock;
 
   return (
     <div className="basicForm">
       <form onSubmit={submitForm}>
-        {inputs.map((input) => (
+        {inputs.map((input: IFormInput) => (
           <FormInput {...input}></FormInput>
         ))}
       </form>

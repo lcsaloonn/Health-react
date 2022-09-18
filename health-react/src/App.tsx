@@ -4,11 +4,11 @@ import { BasicFormMock } from "./Mocks/BasicFormMocks";
 import { IFormInput } from "./utils/types/IFormInput";
 
 function App() {
-  const inputss: IFormInput[] = [];
+  const input: IFormInput[] = BasicFormMock;
 
   return (
     <div className="app">
-      <BasicForm></BasicForm>
+      <BasicForm inputs={input}></BasicForm>
     </div>
   );
 }
