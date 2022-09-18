@@ -11,7 +11,7 @@ const BasicForm = ({ inputs }: { inputs: IFormInput[] }) => {
     <div className="basicForm">
       <form onSubmit={submitForm}>
         {inputs.map((input: IFormInput) => (
-          <FormInput {...input}></FormInput>
+          <FormInput {...input} key={input.id}></FormInput>
         ))}
       </form>
     </div>
