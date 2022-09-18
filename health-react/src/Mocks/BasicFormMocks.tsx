@@ -1,33 +1,32 @@
-import { inputEnum } from "../utils/types/enums/inputEnums";
 import { IFormInput } from "../utils/types/IFormInput";
 
 export const singleBasicFormMock = {
   id: "1",
   name: "test",
-  type: inputEnum.PASSWORD,
+  type: "password",
 };
 
 export const BasicFormMock: IFormInput[] = [
   {
     id: "1",
     name: "test",
-    type: inputEnum.EMAIL,
+    type: "email",
     placeholder: "string",
     errorMessage: "string",
   },
   {
     id: "2",
     name: "test",
-    type: inputEnum.TEXT,
+    type: "text",
   },
   {
     id: "3",
     name: "test",
-    type: inputEnum.PASSWORD,
+    type: "password",
   },
   {
     id: "4",
     name: "test",
-    type: inputEnum.PASSWORD,
+    type: "password",
   },
 ];

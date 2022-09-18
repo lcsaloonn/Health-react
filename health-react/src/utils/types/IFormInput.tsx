@@ -1,10 +1,9 @@
-import { inputEnum } from "./enums/inputEnums";
+import { HTMLInputTypeAttribute } from "react";
 
 export interface IFormInput {
   id: string;
   name: string;
-  type: inputEnum;
+  type: HTMLInputTypeAttribute;
   placeholder?: string;
   errorMessage?: string;
 }
-//HTMLInputTypeAttribute
