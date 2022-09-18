@@ -1,5 +1,5 @@
 import React from "react";
-import BasicForm from "./components/forms/basicForm";
+import { BasicForm } from "./components/forms/index";
 import { BasicFormMock } from "./Mocks/BasicFormMocks";
 import { IFormInput } from "./utils/types/IFormInput";
 
