@@ -1,6 +1,6 @@
 import { FormEvent } from "react";
-import { IFormInput } from "../../utils/types/IFormInput";
-import FormInput from "./elements/formInput";
+import { IFormInput } from "../../../utils/types/IFormInput";
+import FormInput from "../elements/formInput";
 
 const BasicForm: React.FC<{ inputs: IFormInput[] }> = ({ inputs }) => {
   function submitForm(event: FormEvent<HTMLFormElement>) {
