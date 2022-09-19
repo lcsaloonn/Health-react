@@ -4,13 +4,14 @@ import { BasicForm } from "./components/forms/index";
 import { BasicFormMock } from "./Mocks/BasicFormMocks";
 import { ButtonStyleEnum } from "./utils/types/enums/buttonStyleEnum";
 import { IFormInput } from "./utils/types/IFormInput";
+import MainView from "./views/main-view/mainView";
 
 function App() {
   const input: IFormInput[] = BasicFormMock;
 
   return (
     <div className="app">
-      <BasicForm inputs={input}></BasicForm>
+      {/* <BasicForm inputs={input}></BasicForm>
       <BasicButton
         onClick={() => {
           console.log("click");
@@ -24,7 +25,8 @@ function App() {
         }}
         children="TEST"
         buttonStyle={ButtonStyleEnum.SECONDARY}
-      ></BasicButton>
+      ></BasicButton> */}
+      <MainView></MainView>
     </div>
   );
 }

@@ -14,3 +14,13 @@
 body {
   background-color: var(--color-primary);
 }
+
+.main-container {
+  margin: 0 20px;
+  @screen md {
+    margin: 0 30px;
+  }
+  @screen lg {
+    margin: 0 80px;
+  }
+}
