@@ -22,7 +22,7 @@ const BasicButton = ({
   return (
     <button
       onClick={onClick}
-      className={`btn${setBtnDefaultStyle}${setBtnDefaultSize} `}
+      className={`btn ${setBtnDefaultStyle} ${setBtnDefaultSize} `}
       type="button"
     >
       {children}

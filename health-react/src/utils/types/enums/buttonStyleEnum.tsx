@@ -1,6 +1,6 @@
 export enum ButtonStyleEnum {
-  PRIMARY = "--primary",
-  SECONDARY = "--secondary",
-  WARNING = "--warning",
-  DANGER = "--danger",
+  PRIMARY = "btn--primary",
+  SECONDARY = "btn--secondary",
+  WARNING = "btn--warning",
+  DANGER = "btn--danger",
 }
