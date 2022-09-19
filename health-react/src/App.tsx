@@ -3,6 +3,7 @@ import { BasicButton } from "./components/buttons";
 import { BasicForm } from "./components/forms/index";
 import { BasicFormMock } from "./Mocks/BasicFormMocks";
 import { IFormInput } from "./utils/types/IFormInput";
+import "./utils/styles/main.scss";
 
 function App() {
   const input: IFormInput[] = BasicFormMock;
