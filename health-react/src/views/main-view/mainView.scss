@@ -8,16 +8,16 @@
     @screen md {
       @include mixins.text-format(4.5rem, normal, normal, 700);
     }
+  }
 
-    .transparent {
-      color: transparent;
-      -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: var(--color-white);
-    }
+  .transparent {
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--color-white);
+  }
 
-    .full {
-      color: var(--color-orange);
-    }
+  .full {
+    color: var(--color-white);
   }
 
   .cummon-text {
@@ -53,5 +53,30 @@
     display: flex;
     font-weight: 400 !important;
     gap: 1rem;
+  }
+
+  .programs-header {
+    margin-top: 100px;
+    color: var(--color-white);
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 700;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    @screen md {
+      gap: 1.5rem;
+      flex-direction: row;
+      display: flex;
+      font-size: 2rem;
+      gap: 4rem;
+      justify-content: center;
+    }
+    @screen lg {
+      font-size: 3rem;
+      gap: 5rem;
+    }
   }
 }

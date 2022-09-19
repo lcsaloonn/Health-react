@@ -56,6 +56,12 @@ const MainView = () => {
           buttonStyle={ButtonStyleEnum.SECONDARY}
         ></BasicButton>
       </div>
+
+      <div className="programs-header">
+        <span className="transparent">Explore our</span>
+        <span className="full">Programs</span>
+        <span className="transparent"> to share you</span>
+      </div>
     </div>
   );
 };
