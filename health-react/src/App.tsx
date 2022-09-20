@@ -1,12 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import NavBar from "./components/navBar/navBar";
+import Header from "./views/header/header";
 import MainView from "./views/main-view/mainView";
 
 function App() {
   return (
     <>
-      <NavBar />
+      <Header />
       <div className="app">
         <Routes>
           <Route path="/" element={<MainView />} />

@@ -18,7 +18,7 @@ const NavBar = () => {
             Profil
           </Link>
           <Link className="nav-item" to="#">
-            Session
+            Sessions
           </Link>
           <Link className="nav-item" to="#">
             Exerices

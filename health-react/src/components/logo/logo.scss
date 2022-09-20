@@ -1,6 +1,6 @@
 .logo {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: var(--color-white);
+  color: var(--color-orange);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -19,8 +19,4 @@
   .logo-3 {
     letter-spacing: 20px;
   }
-}
-.container-logo {
-  display: flex;
-  justify-content: center;
 }
