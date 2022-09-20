@@ -1,0 +1,26 @@
+.logo {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  span {
+    display: block;
+    text-align: center;
+  }
+  .logo-2 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-left: -5px;
+  }
+  .logo-3 {
+    letter-spacing: 20px;
+  }
+}
+.container-logo {
+  display: flex;
+  justify-content: center;
+}
