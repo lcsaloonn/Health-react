@@ -11,7 +11,7 @@ type category = {
   icon?: FontAwesomeIconProps;
   title: string;
   text?: string;
-  onclick?: React.MouseEventHandler<HTMLDivElement>;
+  url: string;
   redirectionName?: string;
 };
 
@@ -19,7 +19,7 @@ const GalleryCategory = ({
   icon,
   title,
   text,
-  onclick,
+  url,
   redirectionName,
 }: category) => {
   const element = <FontAwesomeIcon icon={faDumbbell} size="2x" />;
@@ -32,7 +32,7 @@ const GalleryCategory = ({
         <div className="icon">{element}</div>
         <span className="category-title">{title}</span>
         <span>{text}</span>
-        <div className="join-now" onClick={onclick}>
+        <div className="join-now">
           <span>{redirectionName}</span>
           {arrow}
         </div>
