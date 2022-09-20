@@ -33,12 +33,14 @@ const MainView = () => {
       </div>
 
       <div className="stats-container">
-        {statsArray.map((stat: { number: number; title: string }) => (
-          <div className="stats">
-            <div className="stats-number">+ {stat.number}</div>
-            <div className="stats-text">{stat.title}</div>
-          </div>
-        ))}
+        {statsArray.map(
+          (stat: { number: number; title: string }, i: number) => (
+            <div className="stats" key={i}>
+              <div className="stats-number">+ {stat.number}</div>
+              <div className="stats-text">{stat.title}</div>
+            </div>
+          )
+        )}
       </div>
 
       <div className="hero-button">
@@ -68,6 +70,7 @@ const MainView = () => {
         title="tt"
         text="This programs is designed for those who exercises only for their body fitness not body building. "
         redirectionName="Join now"
+        url="#"
       ></GalleryCategory>
     </div>
   );
