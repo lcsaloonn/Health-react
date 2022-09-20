@@ -19,16 +19,13 @@ type Category = {
 const GalleryCategory = ({ data }: { data: Category[] }) => {
   const element = <FontAwesomeIcon icon={faDumbbell} size="2x" />;
   const arrow = <FontAwesomeIcon icon={faArrowRight} size="2x" />;
-  const setData = () => {
-    // if (data.length() > 4) {
-    //   console.log("trop grand");
-    // }
-  };
+
+  const setData = data.length > 4 ? data.slice(0, 4) : data;
 
   return (
     <div className="programs-categories">
-      {data.map((category: Category) => (
-        <div className="category">
+      {setData.map((category: Category, id: number) => (
+        <div className="category" key={id}>
           <div className="icon">{element}</div>
           <span className="category-title">{category.title}</span>
           <span>{category.text}</span>
