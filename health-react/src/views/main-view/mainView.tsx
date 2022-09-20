@@ -1,5 +1,6 @@
 import { BasicButton } from "../../components/buttons";
 import { GalleryCategory } from "../../components/gallery";
+import { galleryMock } from "../../Mocks/galleryCategory.mock";
 import { ButtonStyleEnum } from "../../utils/types/enums/buttonStyleEnum";
 import "./mainView.scss";
 
@@ -18,6 +19,7 @@ const MainView = () => {
       title: "fitness programs",
     },
   ];
+  const dataGallery = galleryMock;
 
   return (
     <div className="home main-container">
@@ -66,12 +68,7 @@ const MainView = () => {
         <span className="transparent"> to share you</span>
       </div>
 
-      <GalleryCategory
-        title="tt"
-        text="This programs is designed for those who exercises only for their body fitness not body building. "
-        redirectionName="Join now"
-        url="#"
-      ></GalleryCategory>
+      <GalleryCategory data={dataGallery}></GalleryCategory>
     </div>
   );
 };

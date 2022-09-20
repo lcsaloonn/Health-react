@@ -6,8 +6,9 @@ import { faDumbbell } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import "./galleryCategory.scss";
+import { Link } from "react-router-dom";
 
-type category = {
+type Category = {
   icon?: FontAwesomeIconProps;
   title: string;
   text?: string;
@@ -15,28 +16,28 @@ type category = {
   redirectionName?: string;
 };
 
-const GalleryCategory = ({
-  icon,
-  title,
-  text,
-  url,
-  redirectionName,
-}: category) => {
+const GalleryCategory = ({ data }: { data: Category[] }) => {
   const element = <FontAwesomeIcon icon={faDumbbell} size="2x" />;
   const arrow = <FontAwesomeIcon icon={faArrowRight} size="2x" />;
+  const setData = () => {
+    // if (data.length() > 4) {
+    //   console.log("trop grand");
+    // }
+  };
 
   return (
-    // mettre en balise a
     <div className="programs-categories">
-      <div className="category">
-        <div className="icon">{element}</div>
-        <span className="category-title">{title}</span>
-        <span>{text}</span>
-        <div className="join-now">
-          <span>{redirectionName}</span>
-          {arrow}
+      {data.map((category: Category) => (
+        <div className="category">
+          <div className="icon">{element}</div>
+          <span className="category-title">{category.title}</span>
+          <span>{category.text}</span>
+          <Link className="join-now" to={category.url}>
+            <span>{category.redirectionName}</span>
+            {arrow}
+          </Link>
         </div>
-      </div>
+      ))}
     </div>
   );
 };
