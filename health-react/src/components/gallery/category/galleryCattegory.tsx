@@ -1,26 +1,40 @@
+import {
+  FontAwesomeIcon,
+  FontAwesomeIconProps,
+} from "@fortawesome/react-fontawesome";
+import { faDumbbell } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+
+import "./galleryCategory.scss";
+
 type category = {
-  icon: string; // A MODIFIER
+  icon?: FontAwesomeIconProps;
   title: string;
-  text: string;
-  onclick: React.MouseEventHandler<HTMLButtonElement>;
-  redirectionName: string;
+  text?: string;
+  onclick?: React.MouseEventHandler<HTMLDivElement>;
+  redirectionName?: string;
 };
 
-const GalleryCategory = () => {
+const GalleryCategory = ({
+  icon,
+  title,
+  text,
+  onclick,
+  redirectionName,
+}: category) => {
+  const element = <FontAwesomeIcon icon={faDumbbell} size="2x" />;
+  const arrow = <FontAwesomeIcon icon={faArrowRight} size="2x" />;
+
   return (
     // mettre en balise a
     <div className="programs-categories">
       <div className="category">
-        {/* <fa-icon [icon]="faDumbbell" size="2x"></fa-icon> */}
-        <span className="category-title">Title</span>
-        <span>
-          This programs is designed for those who exercises only for their body
-          fitness not body building.
-        </span>
-        <div className="join-now">
-          {/* onclick above */}
-          <span>Join Now</span>
-          {/* <fa-icon class="arrow" [icon]="faArrow" size="2x"></fa-icon> */}
+        <div className="icon">{element}</div>
+        <span className="category-title">{title}</span>
+        <span>{text}</span>
+        <div className="join-now" onClick={onclick}>
+          <span>{redirectionName}</span>
+          {arrow}
         </div>
       </div>
     </div>

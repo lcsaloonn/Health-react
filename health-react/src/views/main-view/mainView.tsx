@@ -1,4 +1,5 @@
 import { BasicButton } from "../../components/buttons";
+import { GalleryCategory } from "../../components/gallery";
 import { ButtonStyleEnum } from "../../utils/types/enums/buttonStyleEnum";
 import "./mainView.scss";
 
@@ -62,6 +63,12 @@ const MainView = () => {
         <span className="full">Programs</span>
         <span className="transparent"> to share you</span>
       </div>
+
+      <GalleryCategory
+        title="tt"
+        text="This programs is designed for those who exercises only for their body fitness not body building. "
+        redirectionName="Join now"
+      ></GalleryCategory>
     </div>
   );
 };

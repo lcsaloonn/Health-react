@@ -1,6 +1,7 @@
 import React from "react";
 import { BasicButton } from "./components/buttons";
 import { BasicForm } from "./components/forms/index";
+import { GalleryCategory } from "./components/gallery";
 import { BasicFormMock } from "./Mocks/BasicFormMocks";
 import { ButtonStyleEnum } from "./utils/types/enums/buttonStyleEnum";
 import { IFormInput } from "./utils/types/IFormInput";
