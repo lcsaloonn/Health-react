@@ -45,12 +45,14 @@
 
     .stats {
       margin: 20px 0;
+      @screen md {
+        margin: 0 20px;
+      }
       &-number {
         color: var(--color-white);
         font-size: 1.4rem;
         @screen md {
           font-size: 2rem;
-          margin: 0 20px;
         }
       }
       &-text {
