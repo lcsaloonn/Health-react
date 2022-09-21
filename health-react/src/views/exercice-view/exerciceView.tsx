@@ -1,6 +1,6 @@
-import DropDownList from "../../components/forms/elements/dropDownList";
+import { DropDownListIcon } from "../../components/forms";
 
 const ExerciceView = () => {
-  return <DropDownList></DropDownList>;
+  return <DropDownListIcon></DropDownListIcon>;
 };
 export default ExerciceView;
