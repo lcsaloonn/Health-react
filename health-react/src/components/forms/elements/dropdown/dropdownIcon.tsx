@@ -1,9 +1,20 @@
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { InputHTMLAttributes } from "react";
 import "./dropdowicon.scss";
 
-const DropDownListIcon = () => {
+type Dropdown = {
+  incon?: string;
+  optionValue: string;
+  optionText: string;
+};
+
+const DropDownListIcon = ({
+  data,
+  title,
+}: {
+  data: Dropdown[];
+  title: string;
+}) => {
   const checkIcon = <FontAwesomeIcon icon={faCheck} className="icon" />;
 
   const show = (box: string) => {
@@ -19,28 +30,17 @@ const DropDownListIcon = () => {
   return (
     <div className="t">
       <div className="dropdown" onClick={() => dropdown()}>
-        <input
-          type="text"
-          className="textbox"
-          placeholder="Dropdown Menu"
-          readOnly
-        />
+        <input type="text" className="textbox" placeholder={title} readOnly />
         <div className="option">
-          <div onClick={() => show("test1")} id="test1">
-            {checkIcon} test 1
-          </div>
-          <div onClick={() => show("test2")} id="test2">
-            {checkIcon} test 2
-          </div>
-          <div onClick={() => show("test3")} id="test3">
-            {checkIcon} test 3
-          </div>
-          <div onClick={() => show("test4")} id="test4">
-            {checkIcon} test 4
-          </div>
-          <div onClick={() => show("test5")} id="test5">
-            {checkIcon} test 5
-          </div>
+          {data.map((data: Dropdown, id: number) => (
+            <div
+              onClick={() => show(data.optionValue)}
+              id={data.optionValue}
+              key={id}
+            >
+              {checkIcon} {data.optionText}
+            </div>
+          ))}
         </div>
       </div>
     </div>
