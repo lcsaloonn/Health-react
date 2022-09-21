@@ -1,0 +1,25 @@
+@use "../../../utils/styles/mixins.scss";
+
+.exercice-card {
+  background-color: var(--color-white);
+  width: 20%;
+  padding: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 3px 3px 3px 3px black;
+
+    .title {
+      color: var(--color-orange);
+    }
+  }
+
+  .title {
+    @include mixins.text-format(1.5rem, normal, normal, 700);
+    color: var(--color-primary);
+    padding-bottom: 15px;
+  }
+  .text {
+    color: var(--color-light-grey);
+  }
+}
