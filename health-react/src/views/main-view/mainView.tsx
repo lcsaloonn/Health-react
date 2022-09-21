@@ -1,3 +1,5 @@
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BasicButton } from "../../components/buttons";
 import { GalleryCategory } from "../../components/gallery";
 import { galleryMock } from "../../Mocks/galleryCategory.mock";
@@ -20,6 +22,10 @@ const MainView = () => {
     },
   ];
   const dataGallery = galleryMock;
+
+  const checkIcon = (
+    <FontAwesomeIcon icon={faCheck} size="2x" className="icon" />
+  );
 
   return (
     <div className="home main-container">
@@ -69,6 +75,32 @@ const MainView = () => {
       </div>
 
       <GalleryCategory data={dataGallery}></GalleryCategory>
+
+      <div className="reasons">
+        <span>Some Reasons</span>
+        <div>
+          <span className="transparent">Why </span>
+          <span className="full">Choose us?</span>
+        </div>
+        <div className="details">
+          <div>
+            {checkIcon}
+            <span>Over 140+ expert coaches</span>
+          </div>
+          <div>
+            {checkIcon}
+            <span>train smarter and faster than before</span>
+          </div>
+          <div>
+            {checkIcon}
+            <span>1 free program for new member</span>
+          </div>
+          <div>
+            {checkIcon}
+            <span>reliable partners</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
