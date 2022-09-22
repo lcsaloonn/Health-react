@@ -1,7 +1,7 @@
 import { ExerciceCard } from "components/cards";
 import { DropDownListIcon } from "components/forms";
-import { dropdownListIconMock } from "mocks/dropDownList.mocks";
-import { exerciceCardMock } from "mocks/exerciceCard.mock";
+import { dropdownListIconMock } from "Mocks/dropDownList.mocks";
+import { exerciceCardMock } from "Mocks/exerciceCard.mock";
 import { IExerciceCard } from "utils/types/IExerciceCard";
 import "./exerciceView.scss";
 
