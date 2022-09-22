@@ -1,4 +1,4 @@
-import { faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faStarHalfStroke } from "@fortawesome/free-solid-svg-icons";
 import { faStar as emptyStar } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { StarService } from "../../services/starsService/star.service";
@@ -9,8 +9,8 @@ const StarRaitingCompponent = ({ num }: { num: number }) => {
 
   let fullStars: JSX.Element[] = [];
   let halfstar =
-    starService.halfStars == 1 ? (
-      <FontAwesomeIcon icon={faStarHalf} className="icon star " />
+    starService.halfStars === 1 ? (
+      <FontAwesomeIcon icon={faStarHalfStroke} className="icon star " />
     ) : null;
 
   for (let i = 1; i <= starService.fullStars; i++) {
