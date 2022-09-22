@@ -1,8 +1,3 @@
-.t {
-  display: flex;
-  justify-content: center;
-}
-
 .dropdown {
   position: relative;
   margin-top: 100px;
@@ -26,7 +21,7 @@
 
   &.active {
     .option {
-      //display: block;
+      display: block;
       height: 200px;
     }
     &::before {
