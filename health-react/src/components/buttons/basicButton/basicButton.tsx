@@ -1,5 +1,5 @@
-import { ButtonStyleEnum } from "../../../utils/types/enums/buttonStyleEnum";
-import { SizeEnum } from "../../../utils/types/enums/sizeEnum";
+import { ButtonStyleEnum } from "utils/types/enums/buttonStyleEnum";
+import { SizeEnum } from "utils/types/enums/sizeEnum";
 
 type IButton = {
   children: string;

@@ -1,5 +1,5 @@
 import { FormEvent } from "react";
-import { IFormInput } from "../../../utils/types/IFormInput";
+import { IFormInput } from "utils/types/IFormInput";
 import FormInput from "../elements/formInput";
 
 const BasicForm = ({ inputs }: { inputs: IFormInput[] }) => {

@@ -1,9 +1,9 @@
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { BasicButton } from "../../components/buttons";
-import { GalleryCategory } from "../../components/gallery";
-import { galleryMock } from "../../Mocks/galleryCategory.mock";
-import { ButtonStyleEnum } from "../../utils/types/enums/buttonStyleEnum";
+import { BasicButton } from "components/buttons";
+import { GalleryCategory } from "components/gallery";
+import { galleryMock } from "mocks/galleryCategory.mock";
+import { ButtonStyleEnum } from "utils/types/enums/buttonStyleEnum";
 import "./mainView.scss";
 
 const MainView = () => {

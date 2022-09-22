@@ -1,4 +1,4 @@
-import { IFormInput } from "../../../utils/types/IFormInput";
+import { IFormInput } from "utils/types/IFormInput";
 
 const FormInput: React.FC<IFormInput> = (props: IFormInput) => {
   return <input {...props} />;

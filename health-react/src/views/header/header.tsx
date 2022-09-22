@@ -1,5 +1,5 @@
-import Logo from "../../components/logo/logo";
-import NavBar from "../../components/navBar/navBar";
+import Logo from "components/logo/logo";
+import NavBar from "components/navBar/navBar";
 import "./header.scss";
 const Header = () => {
   return (
