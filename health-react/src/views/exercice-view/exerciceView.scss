@@ -1,5 +1,19 @@
 .exerciceView {
   .cards {
     display: flex;
+    height: auto;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    justify-content: center;
+    gap: 20px;
+    @screen md {
+      grid-template-columns: repeat(2, auto);
+    }
+    @screen lg {
+      grid-template-columns: repeat(3, auto);
+    }
+    .card-item {
+    }
   }
 }
