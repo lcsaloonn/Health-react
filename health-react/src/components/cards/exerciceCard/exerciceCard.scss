@@ -3,8 +3,9 @@
 .exercice-card {
   background-color: var(--color-white);
   width: 20%;
-  padding: 40px;
+  padding: 30px;
   border-radius: 10px;
+  display: block;
   cursor: pointer;
   &:hover {
     box-shadow: 3px 3px 3px 3px black;
@@ -21,5 +22,14 @@
   }
   .text {
     color: var(--color-light-grey);
+  }
+  .star-container {
+    display: flex;
+    margin: 15px 1px;
+    .difficultyText {
+      @include mixins.text-format(0.9rem, normal, normal, 700);
+      color: var(--color-primary);
+      margin-right: 20px;
+    }
   }
 }

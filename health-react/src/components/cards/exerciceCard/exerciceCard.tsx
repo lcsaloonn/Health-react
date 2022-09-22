@@ -1,24 +1,27 @@
-import img from "../../../assets/img/exercices/face-pull-exercice-epaules.jpg";
+import { ILInk } from "../../../utils/types/ILink";
 import { truncateText } from "../../../utils/util/text-format/textFormat";
+import StarRaitingCompponent from "../../starRaiting/starRaiting";
 import "./exerciceCard.scss";
 
-const ExerciceCard = () => {
-  const text =
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus iure molestias totam sed reprehenderit libero ipsam voluptas dolorum rerum! Numquam, sed. Ab rem consequatur facilis quaerat eum similique esse aliquid";
-  console.log(truncateText(text, 5)); // pour tronquer
+type IExerciceCard = {
+  link: ILInk;
+  title: string;
+  description: string;
+  raiting: number;
+};
+
+const ExerciceCard = ({ props }: { props: IExerciceCard }) => {
   return (
     <div className="exercice-card">
       <div className="thumbnail">
-        <img src={img} alt="" />
+        <img src={props.link.url} alt={props.link.alt} />
       </div>
-      <div className="title">Face pull</div>
-      {/* couper si trop gros */}
-      <div className="text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-        possimus, labore eaque delectus, earum autem necessitatibus quisquam
-        sunt illo corrupti totam quos ipsa fuga at unde maxime esse eum quas!
+      <div className="title">{props.title}</div>
+      <div className="text">{truncateText(props.description, 5)}</div>
+      <div className="star-container">
+        <span className="difficultyText">Difficulty:</span>
+        <StarRaitingCompponent num={props.raiting}></StarRaitingCompponent>
       </div>
-      {/* stars pour plus tard */}
     </div>
   );
 };
