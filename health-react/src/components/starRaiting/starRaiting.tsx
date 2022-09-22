@@ -14,11 +14,19 @@ const StarRaitingCompponent = ({ num }: { num: number }) => {
     ) : null;
 
   for (let i = 1; i <= starService.fullStars; i++) {
-    fullStars.push(<FontAwesomeIcon icon={faStar} className="icon star " />);
+    fullStars.push(
+      <FontAwesomeIcon icon={faStar} key={"full" + i} className="icon star " />
+    );
   }
   let emptyStars: JSX.Element[] = [];
   for (let i = 1; i <= starService.emptyStars; i++) {
-    emptyStars.push(<FontAwesomeIcon icon={emptyStar} className="icon star" />);
+    emptyStars.push(
+      <FontAwesomeIcon
+        icon={emptyStar}
+        key={"empty" + i}
+        className="icon star"
+      />
+    );
   }
 
   return (
