@@ -13,6 +13,8 @@ type RequestionOptions = {
 };
 
 export class HttpService {
+  API = "http://localhost:3001/";
+
   async get(path: string, data?: any): Promise<any> {
     const requestOptions = {
       method: RequestMethod.GET,
@@ -22,7 +24,7 @@ export class HttpService {
         "My-Custom-Header": "foobar",
       },
     };
-    return this.http(requestOptions, path + `/${data}`);
+    return await this.http(requestOptions, path + `/${data}`);
     //this.setState({ postId: data.id });
     // quand le partie state
   }
@@ -44,7 +46,7 @@ export class HttpService {
     requestOptions: RequestionOptions,
     path: string
   ): Promise<any> {
-    const response = await fetch(path, requestOptions);
+    const response = await fetch(this.API + path, requestOptions);
 
     const responseData = await response.json().catch((error) => {
       console.log("Error ", error);
