@@ -1,4 +1,4 @@
-import { IFormInput } from "../utils/types/IFormInput";
+import { IFormInput } from "components/forms/elements/formInput";
 
 export const singleBasicFormMock = {
   id: "1",
