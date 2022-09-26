@@ -1,5 +1,5 @@
 import { ExerciceCard } from "components/cards";
-import { DropDownListIcon } from "components/forms";
+import { DropDownListIcon, RegisterForm } from "components/forms";
 import { dropdownListIconMock } from "Mocks/dropDownList.mocks";
 import { exerciceCardMock } from "Mocks/exerciceCard.mock";
 import { IExerciceCard } from "utils/types/IExerciceCard";
@@ -10,6 +10,7 @@ const ExerciceView = () => {
   const mock = exerciceCardMock;
   return (
     <div className="main-container">
+      <RegisterForm></RegisterForm>
       <div className="exerciceView">
         <DropDownListIcon
           data={dropdowMock}

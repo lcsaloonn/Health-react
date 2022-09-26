@@ -1,3 +1,4 @@
+import { RegisterForm } from "components/forms";
 import { appendFile } from "fs";
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainView />} />
           <Route path="exercices" element={<ExerciceView />} />
+          <Route path="register" element={<RegisterForm />} />
         </Routes>
       </div>
     </>
