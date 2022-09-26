@@ -10,7 +10,6 @@ const ExerciceView = () => {
   const mock = exerciceCardMock;
   return (
     <div className="main-container">
-      <RegisterForm></RegisterForm>
       <div className="exerciceView">
         <DropDownListIcon
           data={dropdowMock}
