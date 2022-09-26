@@ -1,5 +1,6 @@
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useRef, useState } from "react";
 import "./dropdowicon.scss";
 
 type Dropdown = {
@@ -15,11 +16,12 @@ const DropDownListIcon = ({
   data: Dropdown[];
   title: string;
 }) => {
-  const checkIcon = <FontAwesomeIcon icon={faCheck} className="icon" />;
+  const [optionvalue, setOptionValue] = useState("");
 
-  const show = (box: string) => {
-    (document.querySelector(".textbox") as HTMLInputElement).value = box;
-  };
+  useEffect(() => {
+    (document.querySelector(".textbox") as HTMLInputElement).value =
+      optionvalue;
+  }, [optionvalue]);
 
   const dropdown = () => {
     (document.querySelector(".dropdown") as HTMLInputElement).classList.toggle(
@@ -33,11 +35,13 @@ const DropDownListIcon = ({
       <div className="option">
         {data.map((data: Dropdown, id: number) => (
           <div
-            onClick={() => show(data.optionValue)}
+            // onClick={() => show(data.optionValue)}
+            onClick={() => setOptionValue(data.optionValue)}
             id={data.optionValue}
             key={id}
           >
-            {checkIcon} {data.optionText}
+            <FontAwesomeIcon icon={faCheck} className="icon" />
+            {data.optionText}
           </div>
         ))}
       </div>

@@ -1,18 +1,18 @@
 export const dropdownListIconMock = [
   {
     optionValue: "arms",
-    optionText: "arms",
+    optionText: "Arms",
   },
   {
     optionValue: "legs",
-    optionText: "legs",
+    optionText: "Legs",
   },
   {
     optionValue: "shoulders",
-    optionText: "shoulders",
+    optionText: "Shoulders",
   },
   {
     optionValue: "back",
-    optionText: "back",
+    optionText: "Back",
   },
 ];
