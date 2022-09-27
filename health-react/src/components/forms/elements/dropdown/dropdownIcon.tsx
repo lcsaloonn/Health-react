@@ -12,15 +12,18 @@ type Dropdown = {
 const DropDownListIcon = ({
   data,
   title,
+  returnValue,
 }: {
   data: Dropdown[];
   title: string;
+  returnValue: any;
 }) => {
   const [optionvalue, setOptionValue] = useState("");
 
   useEffect(() => {
     (document.querySelector(".textbox") as HTMLInputElement).value =
       optionvalue;
+    returnValue(optionvalue);
   }, [optionvalue]);
 
   const dropdown = () => {
@@ -35,7 +38,6 @@ const DropDownListIcon = ({
       <div className="option">
         {data.map((data: Dropdown, id: number) => (
           <div
-            // onClick={() => show(data.optionValue)}
             onClick={() => setOptionValue(data.optionValue)}
             id={data.optionValue}
             key={id}
