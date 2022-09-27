@@ -1,6 +1,4 @@
-import { IExerciceCard } from "utils/types/IExerciceCard";
-
-export const exerciceCardMock: IExerciceCard[] = [
+export const exerciceCardMock = [
   {
     link: {
       url: "face-pull-exercice-epaules.jpg",
