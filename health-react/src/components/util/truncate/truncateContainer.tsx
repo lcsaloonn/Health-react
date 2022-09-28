@@ -14,18 +14,18 @@ const TruncateContainer = ({
   }
 
   return (
-    <p>
+    <>
       {text.length > lengthMax && link !== undefined ? (
         <p>
-          {truncate(text, lengthMax)}
-          <Link className="link" to={link}>
+          {truncate(text, lengthMax)}&#160;
+          <Link className="readmore-link" to={link}>
             read more
           </Link>
         </p>
       ) : (
         <p>{text}</p>
       )}
-    </p>
+    </>
   );
 };
 export default TruncateContainer;
