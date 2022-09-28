@@ -4,11 +4,11 @@
     height: auto;
     margin: 30px auto;
     display: grid;
-    grid-template-columns: repeat(1, auto);
+    grid-template-columns: repeat(1, 400px);
     justify-content: center;
     gap: 20px;
     @screen md {
-      grid-template-columns: repeat(2, auto);
+      grid-template-columns: repeat(2, 400px);
     }
     @screen lg {
       grid-template-columns: repeat(3, 400px);
