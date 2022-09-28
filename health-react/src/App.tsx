@@ -1,9 +1,7 @@
 import { RegisterForm } from "components/forms";
-import { appendFile } from "fs";
-import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import { HttpService } from "services/http/http.service";
-
+import NotFoundView from "views/notFind-view/notFindView";
+import SingleExerciceView from "views/single-exercice-view/singleExerciceView";
 import ExerciceView from "./views/exercice-view/exerciceView";
 import Header from "./views/header/header";
 import MainView from "./views/main-view/mainView";
@@ -16,8 +14,13 @@ function App() {
       <div className="app">
         <Routes>
           <Route path="/" element={<MainView />} />
-          <Route path="exercices" element={<ExerciceView />} />
+          <Route path="exercices">
+            <Route index element={<ExerciceView />} />
+            <Route path=":id" element={<SingleExerciceView />} />
+          </Route>
+
           <Route path="register" element={<RegisterForm />} />
+          <Route path="*" element={<NotFoundView />} />
         </Routes>
       </div>
     </>
