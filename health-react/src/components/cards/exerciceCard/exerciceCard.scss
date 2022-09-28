@@ -20,6 +20,7 @@
     @include mixins.text-format(1.5rem, normal, normal, 700);
     color: var(--color-primary);
     padding-bottom: 15px;
+    text-transform: capitalize;
   }
   .text {
     color: var(--color-light-grey);
