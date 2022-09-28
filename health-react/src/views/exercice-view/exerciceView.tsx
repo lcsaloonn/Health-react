@@ -19,9 +19,9 @@ const ExerciceView = () => {
 
   useEffect(() => {
     const getExercices = async () => {
-      const response = await http.get("/exercices");
-      console.log(response);
-      setExercices(response);
+      const response = await http.get(`/exercices/getByBodyPart/${bodyPart}`);
+      if (response.status !== 400) setExercices(response);
+      console.log(response); // need to move
     };
 
     if (bodyPart !== "") {
@@ -38,11 +38,13 @@ const ExerciceView = () => {
           returnValue={outputBodyPart}
         ></DropDownListIcon>
         <div className="cards">
-          {exercices.map((card: IExercice, id: number) => (
-            <div className="card-item" key={id}>
-              <ExerciceCard props={card}></ExerciceCard>
-            </div>
-          ))}
+          {exercices.length > 0
+            ? exercices.map((card: IExercice, id: number) => (
+                <div className="card-item" key={id}>
+                  <ExerciceCard props={card}></ExerciceCard>
+                </div>
+              ))
+            : null}
         </div>
       </div>
     </div>
