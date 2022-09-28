@@ -6,6 +6,8 @@
   border-radius: 10px;
   display: block;
   cursor: pointer;
+  min-height: 400px;
+
   &:hover {
     box-shadow: 3px 3px 3px 3px black;
 
@@ -21,7 +23,7 @@
   }
   .text {
     color: var(--color-light-grey);
-    min-height: 72px;
+    min-height: 105px;
   }
   .star-container {
     display: flex;
