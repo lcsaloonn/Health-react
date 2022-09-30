@@ -17,7 +17,7 @@ export class HttpService {
   async get(path: string) {
     try {
       const response = await this.axiosClient.get(path);
-      //console.log(response.data);
+      console.log(response.data);
       return response.data;
     } catch (err) {
       console.log(err);
