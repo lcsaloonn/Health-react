@@ -9,3 +9,13 @@
   letter-spacing: $letterSpacing;
   font-weight: $fontweight;
 }
+
+@mixin text-style($color: var(--color-white), $istransparent: false) {
+  @if $istransparent {
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $color;
+  } @else {
+    color: $color;
+  }
+}
