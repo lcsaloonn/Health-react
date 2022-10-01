@@ -1,0 +1,30 @@
+@use "./utils/styles/mixins.scss";
+
+.frame-title {
+  @include mixins.text-format(1.5rem, normal, normal, 700);
+  color: var(--color-white);
+  margin: 40px auto;
+  text-align: center;
+  position: relative;
+  max-width: 550px;
+  &::before {
+    content: "";
+    display: block;
+    width: 130px;
+    height: 4px;
+    background-color: var(--color-orange);
+    left: 0;
+    top: 50%;
+    position: absolute;
+  }
+  &::after {
+    content: "";
+    display: block;
+    width: 130px;
+    height: 4px;
+    background-color: var(--color-orange);
+    right: 0;
+    top: 50%;
+    position: absolute;
+  }
+}
