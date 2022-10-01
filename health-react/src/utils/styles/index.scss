@@ -18,11 +18,11 @@ body {
 }
 
 .main-container {
-  margin: 0 20px;
+  margin: 0 20px 100px 20px;
   @screen md {
-    margin: 0 30px;
+    margin: 0 40px 120px 40px;
   }
   @screen lg {
-    margin: 0 80px;
+    margin: 0 80px 140px 80px;
   }
 }
