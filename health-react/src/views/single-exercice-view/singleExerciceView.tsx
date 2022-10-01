@@ -1,3 +1,4 @@
+import { ImageWrapper, PartFrame } from "components/frame";
 import { TextList } from "components/text";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
@@ -35,17 +36,22 @@ const SingleExerciceView = () => {
   ];
 
   return (
-    <div className="single-exercice">
-      <h1>{id}</h1>
+    <div className="main-container single-exercice">
+      <div>back liste</div>
+      <div className="exercice-header md:grid  md:grid-cols-3">
+        <div className="exercice-title">
+          <span className="exercice-title-transparent">Exercice</span>
+          <span className="exercice-title-full">{id}</span>
+        </div>
+
+        <ImageWrapper imgUrl="d" alt="d" />
+      </div>
+
       <p className="description"></p>
-      <img src="" alt="" />
+
       <div className="how-to">
-        {/* fram -- coment -- */}
-        <h1 className="title">Comment réaliser le {id}</h1>
-
+        <PartFrame title={"Comment faire le " + id} />
         <TextList list={mock} />
-
-        {/* component etape */}
       </div>
     </div>
   );

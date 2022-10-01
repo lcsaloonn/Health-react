@@ -1,0 +1,29 @@
+@use "./utils/styles/mixins.scss";
+
+.single-exercice {
+  .exercice {
+    &-header {
+    }
+
+    &-title {
+      display: flex;
+      flex-direction: column;
+      white-space: nowrap;
+      text-transform: uppercase;
+      align-self: center;
+      align-items: center;
+      @include mixins.text-format(2rem, normal, normal, 700);
+      margin-bottom: 40px;
+      @screen md {
+        @include mixins.text-format(3.5rem, normal, normal, 700);
+        margin: 0;
+      }
+      &-full {
+        @include mixins.text-style(var(--color-white));
+      }
+      &-transparent {
+        @include mixins.text-style(var(--color-orange), true);
+      }
+    }
+  }
+}
