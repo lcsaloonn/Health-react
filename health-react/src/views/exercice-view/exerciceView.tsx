@@ -9,7 +9,7 @@ import "./exerciceView.scss";
 const ExerciceView = () => {
   const dropdowMock = dropdownListIconMock;
 
-  const [bodyPart, setBodyPart] = useState("");
+  const [bodyPart, setBodyPart] = useState("all");
   const [exercices, setExercices] = useState([]);
   const http = new HttpService();
 
@@ -19,7 +19,8 @@ const ExerciceView = () => {
 
   useEffect(() => {
     const getExercices = async () => {
-      const response = await http.get(`/exercices/getByBodyPart/${bodyPart}`);
+      const path = bodyPart === "all" ? "" : `/getByBodyPart/${bodyPart}`;
+      const response = await http.get(`/exercices${path}`);
       if (response.status !== 400) setExercices(response);
       console.log(response); // need to move
     };
@@ -34,7 +35,7 @@ const ExerciceView = () => {
       <div className="exerciceView">
         <DropDownListIcon
           data={dropdowMock}
-          title="Choose a body part"
+          title="Choisis une partie du corp"
           returnValue={outputBodyPart}
         ></DropDownListIcon>
         <div className="cards">

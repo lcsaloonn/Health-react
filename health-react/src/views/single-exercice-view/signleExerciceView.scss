@@ -2,6 +2,13 @@
 
 .single-exercice {
   .exercice {
+    &-go-back {
+      text-align: center;
+      margin-bottom: 20px;
+      @screen md {
+        margin-bottom: 40px;
+      }
+    }
     &-header {
     }
 

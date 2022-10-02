@@ -15,4 +15,8 @@ export const dropdownListIconMock = [
     optionValue: "back",
     optionText: "Back",
   },
+  {
+    optionValue: "pecs",
+    optionText: "Pecs",
+  },
 ];

@@ -1,3 +1,4 @@
+import { ButtonGoBack } from "components/buttons";
 import { ImageWrapper, PartFrame } from "components/frame";
 import { TextList } from "components/text";
 import { useEffect, useState } from "react";
@@ -37,7 +38,9 @@ const SingleExerciceView = () => {
 
   return (
     <div className="main-container single-exercice">
-      <div>back liste</div>
+      <div className="exercice-go-back grid grid-cols-3 ">
+        <ButtonGoBack text="retour" link="../" />
+      </div>
       <div className="exercice-header md:grid  md:grid-cols-3">
         <div className="exercice-title">
           <span className="exercice-title-transparent">Exercice</span>
