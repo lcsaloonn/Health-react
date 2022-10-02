@@ -35,6 +35,7 @@ const ExerciceView = () => {
       <div className="exerciceView">
         <DropDownListIcon
           data={dropdowMock}
+          defaultValuePostion={1}
           title="Choisis une partie du corp"
           returnValue={outputBodyPart}
         ></DropDownListIcon>

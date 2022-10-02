@@ -1,5 +1,9 @@
 export const dropdownListIconMock = [
   {
+    optionValue: "all",
+    optionText: "Tous les exercices",
+  },
+  {
     optionValue: "arms",
     optionText: "Arms",
   },

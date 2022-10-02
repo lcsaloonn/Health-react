@@ -9,20 +9,25 @@ type Dropdown = {
   optionText: string;
 };
 
+/**
+ * improvements need a default value
+ * improvement need disabled
+ */
 const DropDownListIcon = ({
   data,
   title,
   returnValue,
 }: {
   data: Dropdown[];
+  defaultValuePostion: number;
   title: string;
   returnValue: any;
 }) => {
   const [optionvalue, setOptionValue] = useState("");
+  const [optionText, setOptionText] = useState("");
 
   useEffect(() => {
-    (document.querySelector(".textbox") as HTMLInputElement).value =
-      optionvalue;
+    (document.querySelector(".textbox") as HTMLInputElement).value = optionText;
     returnValue(optionvalue);
   }, [optionvalue]);
 
@@ -38,7 +43,10 @@ const DropDownListIcon = ({
       <div className="option">
         {data.map((data: Dropdown, id: number) => (
           <div
-            onClick={() => setOptionValue(data.optionValue)}
+            onClick={() => {
+              setOptionValue(data.optionValue);
+              setOptionText(data.optionText);
+            }}
             id={data.optionValue}
             key={id}
           >
