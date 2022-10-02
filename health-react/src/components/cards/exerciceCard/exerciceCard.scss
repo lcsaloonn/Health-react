@@ -6,7 +6,8 @@
   border-radius: 10px;
   display: block;
   cursor: pointer;
-  min-height: 450px;
+  min-height: 480px;
+  text-decoration: none;
 
   &:hover {
     box-shadow: 3px 3px 3px 3px black;
@@ -21,6 +22,7 @@
     color: var(--color-primary);
     padding-bottom: 15px;
     text-transform: capitalize;
+    min-height: 50px;
   }
   .text {
     color: var(--color-light-grey);
