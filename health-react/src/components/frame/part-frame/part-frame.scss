@@ -5,35 +5,21 @@
   color: var(--color-white);
   margin: 40px auto;
   text-align: center;
-  position: relative;
-  max-width: 300px;
-  @screen md {
-    max-width: 550px;
-  }
-  &::before {
-    content: "";
-    display: block;
-    width: 15px;
-    height: 4px;
-    background-color: var(--color-orange);
-    left: 0;
-    top: 50%;
-    position: absolute;
-    @screen md {
-      width: 130px;
-    }
-  }
+  flex-direction: row;
+  display: flex;
+  max-width: 1000px;
+
+  &::before,
   &::after {
     content: "";
-    display: block;
-    width: 15px;
-    height: 4px;
-    background-color: var(--color-orange);
-    right: 0;
-    top: 50%;
-    position: absolute;
-    @screen md {
-      width: 130px;
-    }
+    flex: 1 1;
+    border-bottom: 4px solid var(--color-orange);
+    margin: auto;
+  }
+  &::before {
+    margin-right: 20px;
+  }
+  &::after {
+    margin-left: 20px;
   }
 }
