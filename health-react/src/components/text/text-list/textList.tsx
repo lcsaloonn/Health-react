@@ -9,7 +9,7 @@ const TextList = ({ list }: { list: TextListType[] }) => {
           className="text-list-item col-span-8 md:col-start-2 md:col-end-8 xl:col-start-3 xl:col-end-11"
           key={id}
         >
-          {element.text}
+          <span className="text-list-item-text"> {element.text}</span>
         </li>
       ))}
     </ol>
