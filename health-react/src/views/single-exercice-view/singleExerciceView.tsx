@@ -36,14 +36,14 @@ const SingleExerciceView = () => {
   if (exercice !== undefined) {
     return (
       <div className="main-container single-exercice">
-        <div className="exercice-go-back grid grid-cols-3 ">
+        <div className="single-exercice-go-back grid grid-cols-3 ">
           <ButtonGoBack text="retour" link="../" />
         </div>
-        <div className="exercice-header md:grid  md:grid-cols-3 gap-4">
-          <div className="exercice-title">
-            <span className="exercice-title-transparent">Exercice</span>
+        <div className=" md:grid  md:grid-cols-3 gap-4">
+          <div className="single-exercice-title">
+            <span className="single-exercice-title-transparent">Exercice</span>
             {titlesplit.map((element: string, id: number) => (
-              <span className="exercice-title-full" key={id}>
+              <span className="single-exercice-title-full" key={id}>
                 {element}
               </span>
             ))}
@@ -51,10 +51,12 @@ const SingleExerciceView = () => {
 
           <ImageWrapper imgUrl="d" alt="d" />
         </div>
+        <div className="single-exercice-description">
+          <PartFrame title="Description" />
+          <p>{exercice.description}</p>
+        </div>
 
-        <p className="description"></p>
-
-        <div className="how-to">
+        <div className="single-exercice-how-to">
           <PartFrame title={"Comment faire le " + title} />
           <TextList list={exercice.howToRealise} />
         </div>
