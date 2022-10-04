@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { HttpService } from "services/http/http.service";
 import { IExercicePost } from "utils/types/enums/IExercicePost.interface";
+import NotFoundView from "views/notFind-view/notFindView";
 import "./signleExerciceView.scss";
 
 const SingleExerciceView = () => {
@@ -63,7 +64,7 @@ const SingleExerciceView = () => {
       </div>
     );
   } else {
-    return <h1>Wrong name</h1>;
+    return <NotFoundView />;
   }
 };
 export default SingleExerciceView;
