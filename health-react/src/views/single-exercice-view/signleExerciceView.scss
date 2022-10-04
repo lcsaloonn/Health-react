@@ -43,8 +43,8 @@
     margin-top: 7rem;
     p {
       margin: auto;
-
       max-width: 1000px;
+      @include mixins.text-format(16px, 32px, normal, 400);
     }
   }
 }
