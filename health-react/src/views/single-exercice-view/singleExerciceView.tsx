@@ -49,7 +49,7 @@ const SingleExerciceView = () => {
             ))}
           </div>
 
-          <ImageWrapper imgUrl="d" alt="d" />
+          <ImageWrapper imgUrl={exercice.imgUrl} alt={title} />
         </div>
         <div className="single-exercice-description">
           <PartFrame title="Description" />
