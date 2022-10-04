@@ -19,9 +19,17 @@
       text-transform: uppercase;
       align-self: center;
       align-items: center;
+
       @include mixins.text-format(2rem, normal, normal, 700);
       margin-bottom: 40px;
       @screen md {
+        @include mixins.text-format(2.5rem, normal, normal, 700);
+      }
+      @screen lg {
+        @include mixins.text-format(3rem, normal, normal, 700);
+        margin: 0;
+      }
+      @screen xl {
         @include mixins.text-format(3.5rem, normal, normal, 700);
         margin: 0;
       }

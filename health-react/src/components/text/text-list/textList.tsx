@@ -1,9 +1,5 @@
+import { TextListType } from "utils/types/enums/IExercicePost.interface";
 import "./text-list.scss";
-
-type TextListType = {
-  id: number;
-  text: string;
-};
 
 const TextList = ({ list }: { list: TextListType[] }) => {
   return (
