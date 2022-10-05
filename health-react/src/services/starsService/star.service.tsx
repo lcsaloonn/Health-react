@@ -16,7 +16,7 @@ export class StarService {
 
   private numberOfStars(num: number) {
     const fullStars = Math.floor(num);
-    const halfStars = fullStars - num <= 0.5 ? 0 : 1;
+    const halfStars = num - fullStars <= 0.4 ? 0 : 1;
     const emptyStars =
       fullStars + halfStars < 5 ? 5 - (fullStars + halfStars) : 0;
     return { halfStars, fullStars, emptyStars };
