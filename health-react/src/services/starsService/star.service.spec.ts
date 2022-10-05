@@ -1,6 +1,6 @@
 import { StarService } from "./star.service";
 
-fdescribe(StarService, () => {
+describe(StarService, () => {
   let starService = new StarService();
   beforeEach(async () => {
     starService = new StarService();
