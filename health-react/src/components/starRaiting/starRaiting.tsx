@@ -31,7 +31,7 @@ const StarRaitingCompponent = ({ num }: { num: number }) => {
 
   return (
     <div className="stars-raiting">
-      <span>{fullStars}</span>
+      <span data-testid="fullStars">{fullStars}</span>
       <span>{halfstar}</span>
       <span> {emptyStars}</span>
     </div>
