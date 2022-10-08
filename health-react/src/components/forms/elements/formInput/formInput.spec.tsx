@@ -17,7 +17,7 @@ const mockNoError: IFormInput = {
   inputAttribut: { placeholder: "dd", id: "userd" },
   label: "User",
 };
-fdescribe(InputFormComponent, () => {
+describe(InputFormComponent, () => {
   const setupError = () => render(<InputFormComponent props={mock} />);
   const setUpNoError = () => render(<InputFormComponent props={mockNoError} />);
 
