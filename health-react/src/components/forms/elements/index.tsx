@@ -1,4 +1,4 @@
 import DropDownListIcon from "./dropdown/dropdownIcon";
-import FormInput from "./formInput";
+import { InputFormComponent } from "./formInput/formInput";
 
-export { DropDownListIcon, FormInput };
+export { DropDownListIcon, InputFormComponent };
