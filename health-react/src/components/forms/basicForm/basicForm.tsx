@@ -1,7 +1,5 @@
 import { FormEvent } from "react";
 
-import FormInput from "../elements/formInput";
-
 const BasicForm = () => {
   function submitForm(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();

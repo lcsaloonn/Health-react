@@ -1,8 +1,8 @@
 import { ButtonGoBack } from "components/buttons";
 import { ImageWrapper, PartFrame } from "components/frame";
 import { TextList } from "components/text";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useEffect, useLayoutEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import { HttpService } from "services/http/http.service";
 import { IExercicePost } from "utils/types/enums/IExercicePost.interface";
 import NotFoundView from "views/notFind-view/notFindView";
@@ -25,12 +25,11 @@ const SingleExerciceView = () => {
     } catch {}
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (id !== undefined) {
       setTitle(id.replaceAll("-", " "));
       setTitleSplit(id.split("-"));
     }
-
     getExercice();
   }, [""]);
 
