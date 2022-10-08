@@ -13,13 +13,24 @@ export interface IFormInput {
 }
 
 export function InputFormComponent({ props }: { props: IFormInput }) {
-  const [validInput, setValidInput] = useState(false);
-  const [input, setInput] = useState("");
-  const [errorPanel, setErrorPanel] = useState(false);
+  const [validInput, setValidInput] = useState<boolean>();
+  const [input, setInput] = useState<string | undefined>();
+  const [errorPanel, setErrorPanel] = useState<boolean>();
+  console.log(errorPanel);
+  // console.log(validInput);
 
   useEffect(() => {
-    if (props.error) setValidInput(props.error.regex.test(input));
+    if (props.error && input !== undefined)
+      setValidInput(props.error.regex.test(input));
   }, [input]);
+
+  useEffect(() => {
+    if (validInput) {
+      setErrorPanel(false);
+    } else {
+      if (input !== undefined) setErrorPanel(true);
+    }
+  }, [validInput]);
 
   return (
     <div className="formInput">
@@ -27,29 +38,17 @@ export function InputFormComponent({ props }: { props: IFormInput }) {
         <label htmlFor={props.inputAttribut.id}>{props.label}</label>
       ) : null}
 
-      {props.error ? (
-        <div
-          className={errorPanel ? "invalid" : "hidden"}
-          data-testid="errorPanel"
-        >
-          <span className={validInput ? "hidden" : "invalid"}>
-            <ul>
-              {props.error.conditionsMessage.map((element: string) => (
-                <li>{element}</li>
-              ))}
-            </ul>
-          </span>
-        </div>
-      ) : null}
-
       <input
         {...props.inputAttribut}
         {...props.arialAttribut}
         onChange={(e) => {
-          if (props.error) setInput(e.target.value);
+          if (props.error) {
+            setInput(e.target.value);
+          }
         }}
         onFocus={() => {
-          if (props.error) setErrorPanel(true);
+          if (props.error)
+            validInput ? setErrorPanel(false) : setErrorPanel(true);
         }}
         onBlur={() => {
           if (props.error) {
@@ -57,6 +56,23 @@ export function InputFormComponent({ props }: { props: IFormInput }) {
           }
         }}
       />
+
+      {props.error ? (
+        <div
+          className={(errorPanel ? "invalid" : "hidden") + " errorPanel"}
+          data-testid="errorPanel"
+        >
+          <span className={validInput ? "hidden" : "invalid"}>
+            <ul>
+              {props.error.conditionsMessage.map(
+                (element: string, key: number) => (
+                  <li key={key}>{element}</li>
+                )
+              )}
+            </ul>
+          </span>
+        </div>
+      ) : null}
     </div>
   );
 }

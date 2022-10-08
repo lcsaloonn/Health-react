@@ -21,11 +21,19 @@ label {
   display: flex;
   flex-direction: column;
   width: 80%;
+  .errorPanel {
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    background: var(--color-orange);
+    color: var(--color-white);
+    padding: 1rem 2rem;
+    position: relative;
+    bottom: -10px;
+  }
   div {
     .invalid {
       li {
-        @include mixins.text-format(1rem, normal, normal, 300);
-        color: rgb(190, 16, 16);
+        @include mixins.text-format(1rem, normal, normal, 400);
       }
     }
   }
