@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { HTMLInputTypeAttribute, useEffect, useState } from "react";
 import "./formInput.scss";
 
 export interface IFormInput {
+  type: HTMLInputTypeAttribute;
   label?: string;
   error?: {
     regex: RegExp;
@@ -12,22 +13,32 @@ export interface IFormInput {
   inputAttribut: React.HTMLAttributes<HTMLInputElement>;
 }
 
-export function InputFormComponent({ props }: { props: IFormInput }) {
+export function InputFormComponent({
+  props,
+  returnIsInputCorrect,
+  returnInputValue,
+}: {
+  props: IFormInput;
+  returnIsInputCorrect?: (value: boolean) => void;
+  returnInputValue?: (value: string) => void;
+}) {
   const [validInput, setValidInput] = useState<boolean>();
   const [input, setInput] = useState<string | undefined>();
   const [errorPanel, setErrorPanel] = useState<boolean>();
-  console.log(errorPanel);
-  // console.log(validInput);
 
   useEffect(() => {
     if (props.error && input !== undefined)
       setValidInput(props.error.regex.test(input));
+    if (returnInputValue !== undefined && input !== undefined)
+      returnInputValue(input);
   }, [input]);
 
   useEffect(() => {
     if (validInput) {
       setErrorPanel(false);
+      if (returnIsInputCorrect !== undefined) returnIsInputCorrect(true);
     } else {
+      if (returnIsInputCorrect !== undefined) returnIsInputCorrect(false);
       if (input !== undefined) setErrorPanel(true);
     }
   }, [validInput]);
@@ -39,12 +50,11 @@ export function InputFormComponent({ props }: { props: IFormInput }) {
       ) : null}
 
       <input
+        type={props.type}
         {...props.inputAttribut}
         {...props.arialAttribut}
         onChange={(e) => {
-          if (props.error) {
-            setInput(e.target.value);
-          }
+          setInput(e.target.value);
         }}
         onFocus={() => {
           if (props.error)
