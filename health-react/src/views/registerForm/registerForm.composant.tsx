@@ -49,7 +49,7 @@ export function RegisterFormComposant() {
     }
   }
   return (
-    <div className="register-form main-container grid gap-2 grid-cols-4 md:grid-cols-7 lg:grid-cols-9">
+    <div className="register-form main-container grid gap-6 grid-cols-4 md:grid-cols-7 lg:grid-cols-9">
       <div className="register-form-input col-span-4 md:col-start-3 md:col-end-6 lg:col-start-4 lg:col-end-7">
         <InputFormComponent
           props={userName_pram}
@@ -82,7 +82,12 @@ export function RegisterFormComposant() {
           }
         />
       </div>
-      <button onClick={() => isDataReady()}>click</button>
+      <button
+        className="register-form-btn col-span-4 md:col-start-3 md:col-end-6 lg:col-start-4 lg:col-end-7"
+        onClick={() => isDataReady()}
+      >
+        Valider
+      </button>
     </div>
   );
 }
