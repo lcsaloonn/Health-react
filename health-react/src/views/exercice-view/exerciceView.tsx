@@ -22,7 +22,6 @@ const ExerciceView = () => {
       const path = bodyPart === "all" ? "" : `/getByBodyPart/${bodyPart}`;
       const response = await http.get(`/exercices${path}`);
       if (response.status !== 400) setExercices(response);
-      console.log(response); // need to move
     };
 
     if (bodyPart !== "") {
