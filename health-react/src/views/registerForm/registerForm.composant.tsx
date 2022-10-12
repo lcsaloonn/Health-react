@@ -1,8 +1,12 @@
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   IFormInput,
   InputFormComponent,
 } from "components/forms/elements/formInput/formInput";
-import { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { HttpService } from "services/http/http-native.service";
 
 const userName_pram: IFormInput = {
   type: "text",
@@ -41,53 +45,84 @@ export function RegisterFormComposant() {
   const [inputUserValue, setUserValue] = useState("");
   const [inputPwdValue, setPwdValue] = useState("");
   const [inputSecondPwdValue, setSecondPwdValue] = useState("");
+  const [success, setSuccess] = useState(false);
+  const http = new HttpService();
 
-  function isDataReady() {
-    if (isCorrectUSN && isCorrectPWd && inputPwdValue === inputSecondPwdValue) {
-      console.log(inputPwdValue, inputUserValue, inputSecondPwdValue);
-      console.log("correct");
+  function checkData(): boolean {
+    return isCorrectUSN && isCorrectPWd && inputPwdValue === inputSecondPwdValue
+      ? true
+      : false;
+  }
+
+  async function sendData(e: React.MouseEvent) {
+    e.preventDefault();
+    if (checkData()) {
+      console.log("ee");
+      const response = await http.post("user/register", {
+        username: inputUserValue,
+        password: inputPwdValue,
+      });
+      if (response.isSuccess === true) setSuccess(true);
     }
   }
   return (
     <div className="register-form main-container grid gap-6 grid-cols-4 md:grid-cols-7 lg:grid-cols-9">
-      <div className="register-form-input col-span-4 md:col-start-3 md:col-end-6 lg:col-start-4 lg:col-end-7">
-        <InputFormComponent
-          props={userName_pram}
-          returnIsInputCorrect={(isCorrectUSN: boolean) =>
-            setIsCorrectUSN(isCorrectUSN)
-          }
-          returnInputValue={(inputUserValue: string) =>
-            setUserValue(inputUserValue)
-          }
-        />
-      </div>
+      {!success ? (
+        <>
+          <div className="register-form-input col-span-4 md:col-start-3 md:col-end-6 lg:col-start-4 lg:col-end-7">
+            <InputFormComponent
+              props={userName_pram}
+              returnIsInputCorrect={(isCorrectUSN: boolean) =>
+                setIsCorrectUSN(isCorrectUSN)
+              }
+              returnInputValue={(inputUserValue: string) =>
+                setUserValue(inputUserValue)
+              }
+            />
+          </div>
 
-      <div className="register-form-input col-span-4 md:col-start-3 md:col-end-6 lg:col-start-4 lg:col-end-7">
-        <InputFormComponent
-          props={password_param}
-          returnIsInputCorrect={(isCorrectUSN: boolean) =>
-            setIsCorrectPwd(isCorrectUSN)
-          }
-          returnInputValue={(inputPwdValue: string) =>
-            setPwdValue(inputPwdValue)
-          }
-        />
-      </div>
+          <div className="register-form-input col-span-4 md:col-start-3 md:col-end-6 lg:col-start-4 lg:col-end-7">
+            <InputFormComponent
+              props={password_param}
+              returnIsInputCorrect={(isCorrectUSN: boolean) =>
+                setIsCorrectPwd(isCorrectUSN)
+              }
+              returnInputValue={(inputPwdValue: string) =>
+                setPwdValue(inputPwdValue)
+              }
+            />
+          </div>
 
-      <div className="register-form-input col-span-4 md:col-start-3 md:col-end-6 lg:col-start-4 lg:col-end-7">
-        <InputFormComponent
-          props={secondPassword_param}
-          returnInputValue={(inputSecondPwdValue: string) =>
-            setSecondPwdValue(inputSecondPwdValue)
-          }
-        />
-      </div>
-      <button
-        className="register-form-btn col-span-4 md:col-start-3 md:col-end-6 lg:col-start-4 lg:col-end-7"
-        onClick={() => isDataReady()}
-      >
-        Valider
-      </button>
+          <div className="register-form-input col-span-4 md:col-start-3 md:col-end-6 lg:col-start-4 lg:col-end-7">
+            <InputFormComponent
+              props={secondPassword_param}
+              returnInputValue={(inputSecondPwdValue: string) =>
+                setSecondPwdValue(inputSecondPwdValue)
+              }
+            />
+          </div>
+          <button
+            className="register-form-btn col-span-4 md:col-start-3 md:col-end-6 lg:col-start-4 lg:col-end-7"
+            onClick={(e) => sendData(e)}
+          >
+            Valider
+          </button>
+        </>
+      ) : (
+        <div className="register-form-success  col-span-9  text-center m-auto">
+          <div className=" md:flex ">
+            <FontAwesomeIcon
+              className="text-green-400 register-form-success-icon"
+              size="4x"
+              icon={faCheckCircle}
+            />
+            <div className="register-form-success-text">Reussite</div>
+          </div>
+          <Link className="register-form-success-link" to="#">
+            Connection
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

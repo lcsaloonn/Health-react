@@ -1,4 +1,5 @@
-//---------------------
+@use "./utils/styles/mixins.scss";
+
 .register-form {
   &-btn {
     margin-top: 30px;
@@ -11,6 +12,24 @@
     &:hover {
       cursor: pointer;
       background-color: rgb(247, 185, 70);
+    }
+  }
+  &-success {
+    &-icon {
+      margin-bottom: 20px;
+      @screen md {
+        margin-right: 20px;
+      }
+    }
+    &-text {
+      @include mixins.text-format(3rem, normal, normal, 700);
+      color: var(--color-white);
+      align-items: center;
+    }
+    &-link {
+      @include mixins.text-format(1.5rem, normal, normal, 200);
+      color: var(--color-orange);
+      padding-top: 20px;
     }
   }
 }
