@@ -8,5 +8,9 @@
     font-size: 1rem;
     font-weight: 700;
     border: none;
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(247, 185, 70);
+    }
   }
 }
