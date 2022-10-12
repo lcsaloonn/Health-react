@@ -7,6 +7,7 @@ import {
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HttpService } from "services/http/http-native.service";
+import "./registerForm.scss";
 
 const userName_pram: IFormInput = {
   type: "text",
