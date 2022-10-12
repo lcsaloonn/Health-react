@@ -38,6 +38,10 @@ const secondPassword_param: IFormInput = {
   inputAttribut: { id: "secondUser_pwd" },
   label: "Confirmez votre mot de Passe",
 };
+type SignUpError = {
+  isError: boolean;
+  msg?: string;
+};
 
 export function RegisterFormComposant() {
   const [isCorrectUSN, setIsCorrectUSN] = useState(false);
@@ -46,23 +50,33 @@ export function RegisterFormComposant() {
   const [inputPwdValue, setPwdValue] = useState("");
   const [inputSecondPwdValue, setSecondPwdValue] = useState("");
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState<SignUpError>();
   const http = new HttpService();
 
   function checkData(): boolean {
-    return isCorrectUSN && isCorrectPWd && inputPwdValue === inputSecondPwdValue
-      ? true
-      : false;
+    const iserror =
+      isCorrectUSN && isCorrectPWd && inputPwdValue === inputSecondPwdValue
+        ? true
+        : false;
+    setError({
+      isError: !iserror,
+      msg: " Les mots de passes ne se corespondent pas",
+    });
+    return iserror;
   }
 
   async function sendData(e: React.MouseEvent) {
     e.preventDefault();
     if (checkData()) {
-      console.log("ee");
-      const response = await http.post("user/register", {
-        username: inputUserValue,
-        password: inputPwdValue,
-      });
-      if (response.isSuccess === true) setSuccess(true);
+      try {
+        const response = await http.post("user/register", {
+          username: inputUserValue,
+          password: inputPwdValue,
+        });
+        if (response.isSuccess) setSuccess(true);
+      } catch (e) {
+        setError({ isError: true, msg: e as string });
+      }
     }
   }
   return (
@@ -100,6 +114,15 @@ export function RegisterFormComposant() {
                 setSecondPwdValue(inputSecondPwdValue)
               }
             />
+          </div>
+          <div
+            className={
+              error?.isError
+                ? "register-form-error col-span-4 md:col-start-3 md:col-end-6 lg:col-start-4 lg:col-end-7"
+                : "hidden"
+            }
+          >
+            {error?.msg}
           </div>
           <button
             className="register-form-btn col-span-4 md:col-start-3 md:col-end-6 lg:col-start-4 lg:col-end-7"
