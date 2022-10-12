@@ -3,6 +3,7 @@ import { screen } from "@testing-library/dom";
 import { IFormInput, InputFormComponent } from "./formInput";
 
 const mock: IFormInput = {
+  type: "text",
   inputAttribut: { placeholder: "dd", id: "userd" },
   error: {
     regex: /^[a-zA-Z][a-zA-Z-9-_]{3,23}$/,
@@ -14,12 +15,30 @@ const mock: IFormInput = {
   label: "User",
 };
 const mockNoError: IFormInput = {
+  type: "text",
   inputAttribut: { placeholder: "dd", id: "userd" },
   label: "User",
 };
 describe(InputFormComponent, () => {
-  const setupError = () => render(<InputFormComponent props={mock} />);
-  const setUpNoError = () => render(<InputFormComponent props={mockNoError} />);
+  const setCorrectUSN = (value: boolean) => {};
+  const setupError = () =>
+    render(
+      <InputFormComponent
+        props={mock}
+        returnIsInputCorrect={(isCorrectUSN: boolean) =>
+          setCorrectUSN(isCorrectUSN)
+        }
+      />
+    );
+  const setUpNoError = () =>
+    render(
+      <InputFormComponent
+        props={mockNoError}
+        returnIsInputCorrect={(isCorrectUSN: boolean) =>
+          setCorrectUSN(isCorrectUSN)
+        }
+      />
+    );
 
   it("should display correct data when no error", () => {
     setUpNoError();
