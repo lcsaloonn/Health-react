@@ -24,4 +24,13 @@ export class HttpService {
       return err;
     }
   }
+
+  async post(path: string, data: any): Promise<void> {
+    try {
+      const response = await this.axiosClient.post(path, data);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }
