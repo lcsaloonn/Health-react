@@ -1,6 +1,8 @@
-import { RegisterForm } from "components/forms";
+import { Hooktest } from "components/hoocktest/hoocktest";
 import { Routes, Route } from "react-router-dom";
+import { LoginView } from "views/Login/login";
 import NotFoundView from "views/notFind-view/notFindView";
+import { RegisterFormComposant } from "views/registerForm/registerForm.composant";
 import SingleExerciceView from "views/single-exercice-view/singleExerciceView";
 import ExerciceView from "./views/exercice-view/exerciceView";
 import Header from "./views/header/header";
@@ -19,7 +21,9 @@ function App() {
             <Route path=":id" element={<SingleExerciceView />} />
           </Route>
 
-          <Route path="register" element={<RegisterForm />} />
+          <Route path="test" element={<Hooktest />} />
+          <Route path="login" element={<LoginView />} />
+          <Route path="register" element={<RegisterFormComposant />} />
           <Route path="*" element={<NotFoundView />} />
         </Routes>
       </div>
