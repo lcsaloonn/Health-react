@@ -24,4 +24,8 @@
       background-color: rgb(247, 185, 70);
     }
   }
+  &-error {
+    @include mixins.text-format(1rem, normal, normal, 300);
+    color: var(--color-orange);
+  }
 }
