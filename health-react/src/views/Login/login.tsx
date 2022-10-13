@@ -1,15 +1,31 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
+import { sendLoginData } from "services/Login/login.service";
 import "./login.scss";
 
 export function LoginView() {
-  const usernameRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
-  const [isError, setIsError] = useState(true);
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<{ error: boolean; msg?: string }>();
 
   function verifyData() {
-    if (usernameRef.current?.value !== "" && passwordRef.current?.value !== "")
-      setIsError(false);
-    else setIsError(true);
+    if (username && password) {
+      setError({ error: false });
+      return true;
+    } else {
+      setError({ error: true, msg: "Il faut remplir tous les champs" });
+      return false;
+    }
+  }
+  async function login() {
+    if (verifyData()) {
+      const response = await sendLoginData(username, password);
+      if (response?.success) {
+        //envoyer..
+        console.log("c'est bon");
+      } else {
+        setError({ error: true, msg: response?.response.message });
+      }
+    }
   }
 
   return (
@@ -19,27 +35,39 @@ export function LoginView() {
       </div>
       <div className="login-form-input col-span-4 md:col-start-3 md:col-end-6 lg:col-start-4 lg:col-end-7">
         <label htmlFor="username">Nom d'utilisateur</label>
-        <input id="username" type="text" ref={usernameRef} />
+        <input
+          id="username"
+          type="text"
+          onChange={(e) => setUsername(e.target.value)}
+          value={username}
+          autoComplete="off"
+        />
       </div>
 
       <div className="login-form-input col-span-4 md:col-start-3 md:col-end-6 lg:col-start-4 lg:col-end-7">
         <label htmlFor="password">Mot de passe</label>
-        <input type="password" id="password" ref={passwordRef} />
+        <input
+          type="password"
+          id="password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+          autoComplete="off"
+        />
       </div>
 
       <div
         className={
-          isError
+          error?.error
             ? "login-form-error col-span-4 md:col-start-3 md:col-end-6 lg:col-start-4 lg:col-end-7"
             : "hidden"
         }
       >
-        Il faut remplir tous les champs
+        {error?.msg}
       </div>
 
       <button
         className="login-form-btn col-span-4 md:col-start-3 md:col-end-6 lg:col-start-4 lg:col-end-7"
-        onClick={() => verifyData()}
+        onClick={() => login()}
       >
         Valider
       </button>
