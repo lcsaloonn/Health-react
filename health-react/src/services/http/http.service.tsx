@@ -1,4 +1,4 @@
-import axios, { Axios } from "axios";
+import axios, { Axios, AxiosError } from "axios";
 
 export class HttpService {
   axiosClient: Axios;
@@ -25,12 +25,14 @@ export class HttpService {
     }
   }
 
-  async post(path: string, data: any): Promise<void> {
+  async post(path: string, data: any) {
     try {
       const response = await this.axiosClient.post(path, data);
-      console.log(response);
-    } catch (err) {
-      console.log(err);
+      return { success: true, response: response.data };
+    } catch (e) {
+      if (axios.isAxiosError(e)) {
+        return { success: false, response: e.response?.data };
+      }
     }
   }
 }
