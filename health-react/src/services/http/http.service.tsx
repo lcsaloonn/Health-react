@@ -27,7 +27,9 @@ export class HttpService {
 
   async post(path: string, data: any) {
     try {
-      const response = await this.axiosClient.post(path, data);
+      const response = await this.axiosClient.post(path, data, {
+        withCredentials: true,
+      });
       return { success: true, response: response.data };
     } catch (e) {
       if (axios.isAxiosError(e)) {
