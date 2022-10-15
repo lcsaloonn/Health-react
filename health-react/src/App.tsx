@@ -1,4 +1,3 @@
-import { Hooktest } from "components/hoocktest/hoocktest";
 import { Routes, Route } from "react-router-dom";
 import { LoginView } from "views/Login/login";
 import NotFoundView from "views/notFind-view/notFindView";
@@ -23,7 +22,6 @@ function App() {
           </Route>
 
           <Route path="programs" element={<ProgramListView />} />
-          <Route path="test" element={<Hooktest />} />
           <Route path="login" element={<LoginView />} />
           <Route path="register" element={<RegisterFormComposant />} />
           <Route path="*" element={<NotFoundView />} />
