@@ -16,8 +16,8 @@ const NavBar = () => {
         <Link className="nav-item" to="register">
           Profil
         </Link>
-        <Link className="nav-item" to="#">
-          Sessions
+        <Link className="nav-item" to="programs">
+          Programmes
         </Link>
         <Link className="nav-item" to="exercices">
           Exerices

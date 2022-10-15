@@ -2,6 +2,7 @@ import { Hooktest } from "components/hoocktest/hoocktest";
 import { Routes, Route } from "react-router-dom";
 import { LoginView } from "views/Login/login";
 import NotFoundView from "views/notFind-view/notFindView";
+import { ProgramListView } from "views/ProgramList-view/programListView";
 import { RegisterFormComposant } from "views/registerForm/registerForm.composant";
 import SingleExerciceView from "views/single-exercice-view/singleExerciceView";
 import ExerciceView from "./views/exercice-view/exerciceView";
@@ -21,6 +22,7 @@ function App() {
             <Route path=":id" element={<SingleExerciceView />} />
           </Route>
 
+          <Route path="programs" element={<ProgramListView />} />
           <Route path="test" element={<Hooktest />} />
           <Route path="login" element={<LoginView />} />
           <Route path="register" element={<RegisterFormComposant />} />
