@@ -5,7 +5,7 @@ export function ProgramListView() {
   return (
     <div className="main-container programs">
       <div className="programs-title">Choisis ton Programme</div>
-      <div className="programs-title">Et commence ton entrainement</div>
+      <div className="programs-title">Et débute ton entrainement</div>
       <div className="programs-cards">
         <div>
           <ProgramCardComponent />;
