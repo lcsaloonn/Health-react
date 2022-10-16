@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import { LoginView } from "views/Login/login";
 import NotFoundView from "views/notFind-view/notFindView";
-import { ProgramListView } from "views/ProgramList-view/programListView";
+import { ProgramListView } from "views/Programs/ProgramList-view/programListView";
+import { ProgramStartInfoView } from "views/Programs/programStartInfo/programStartInfoView";
 import { RegisterFormComposant } from "views/registerForm/registerForm.composant";
 import SingleExerciceView from "views/single-exercice-view/singleExerciceView";
 import ExerciceView from "./views/exercice-view/exerciceView";
@@ -21,7 +22,11 @@ function App() {
             <Route path=":id" element={<SingleExerciceView />} />
           </Route>
 
-          <Route path="programs" element={<ProgramListView />} />
+          <Route path="programs">
+            <Route index element={<ProgramListView />} />
+            <Route path=":id" element={<ProgramStartInfoView />} />
+          </Route>
+
           <Route path="login" element={<LoginView />} />
           <Route path="register" element={<RegisterFormComposant />} />
           <Route path="*" element={<NotFoundView />} />
