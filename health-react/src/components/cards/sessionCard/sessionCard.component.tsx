@@ -2,7 +2,7 @@ import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StarRaitingCompponent from "components/starRaiting/starRaiting";
 import { Link } from "react-router-dom";
-import "./programCard.scss";
+import "./sessionCard.scss";
 
 const mock = {
   bodypart: ["Bras", "Dos", "Pecs", "Pecs"],
