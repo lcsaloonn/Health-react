@@ -1,0 +1,32 @@
+.table-ex-difficulty {
+  table {
+    border-collapse: collapse;
+    thead {
+      .table-border {
+        border: 3px solid var(--color-black);
+        background-color: var(--color-orange);
+        color: white;
+      }
+      th {
+        padding: 20px;
+        text-align: center;
+      }
+    }
+    tbody {
+      th {
+        padding: 7px;
+        border: 3px solid var(--color-black);
+        background-color: var(--color-light-grey);
+      }
+      td {
+        text-align: center;
+        border: 3px solid var(--color-black);
+        background-color: white;
+      }
+    }
+  }
+
+  // .table-first {
+  //   color: rgb(14, 143, 9);
+  // }
+}
