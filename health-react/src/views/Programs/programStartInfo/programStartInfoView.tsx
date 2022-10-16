@@ -1,3 +1,7 @@
 export function ProgramStartInfoView() {
-  return <></>;
+  return (
+    <div className="program-info">
+      <div className="program-info-title">Programme: Push Pull Leg</div>
+    </div>
+  );
 }
