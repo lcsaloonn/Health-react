@@ -8,6 +8,7 @@
   flex-direction: row;
   display: flex;
   max-width: 1000px;
+  text-transform: uppercase;
 
   &::before,
   &::after {
