@@ -11,7 +11,7 @@ export function ProgramCardComponent() {
   return (
     <Link className="program-card" to="#">
       <div className="program-card-img">
-        <img src="" alt="" />
+        <img src="./assets/img/programs/test.jpg" alt="#" />
       </div>
       <div className="program-card-title"> Programme Push Pull Leg</div>
       <div className="program-card-bodyPart grid gap-2 grid-cols-3">
